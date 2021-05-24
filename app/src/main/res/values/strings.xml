@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">School</string>
+    <string name="addMessage">添加信息</string>
+</resources>
