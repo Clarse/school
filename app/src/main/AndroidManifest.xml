@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.School">
-        <activity android:name=".ui.Login"></activity>
+        <activity android:name=".ui.UserListActivity"></activity>
+        <activity android:name=".ui.UserAddActivity" />
+        <activity android:name=".ui.LoginActivity" />
         <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/FullScreen">

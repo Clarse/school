@@ -12,10 +12,10 @@ import com.example.school.util.DatabaseUtil
 import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.activity_login.*
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     val mmkv = MMKV.defaultMMKV()
-    lateinit var userDao: UserDao
+    private lateinit var userDao: UserDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,28 +24,34 @@ class Login : AppCompatActivity() {
         DatabaseUtil.getDatabase()
         userDao = DatabaseUtil.db.userDao()
 
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     fun login(view: View) {
         when {
-            TextUtils.isEmpty(userName.text) -> {
-                Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show()
+            TextUtils.isEmpty(userNumber.text) -> {
+                Toast.makeText(this, "请输入学号", Toast.LENGTH_SHORT).show()
             }
             TextUtils.isEmpty(password.text) -> {
                 Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show()
             }
             else -> {
-                val findByName = userDao.findByName(userName.text.toString())
+                val findByNumber = userDao.findByNumber(userNumber.text.toString())
                 when {
-                    findByName == null -> {
+                    findByNumber == null -> {
                         Toast.makeText(this, "没有该用户", Toast.LENGTH_SHORT).show()
                     }
-                    findByName.userPassword != password.text.toString() -> {
+                    findByNumber.userPassword != password.text.toString() -> {
                         Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show()
                     }
                     else -> {
-                        mmkv.encode("user", userName.text.toString())
+                        mmkv.encode("user_type", findByNumber.userType)
+                        mmkv.encode("user_number", userNumber.text.toString())
+                        mmkv.encode("user_name", findByNumber.userName)
                         startActivity(Intent(this, MainActivity::class.java))
+                        finish()
                     }
                 }
             }

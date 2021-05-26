@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.UserAddActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/login"
+            android:text="@string/add_user"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -27,39 +27,48 @@
     </androidx.appcompat.widget.Toolbar>
 
     <EditText
-        android:id="@+id/userNumber"
+        android:id="@+id/et_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="请输入学号"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/et_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="请输入姓名"
+        app:layout_constraintEnd_toEndOf="@+id/et_number"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_number"
+        app:layout_constraintTop_toBottomOf="@+id/et_number" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="请输入密码"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/userNumber"
+        app:layout_constraintEnd_toEndOf="@+id/et_number"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/userNumber"
-        app:layout_constraintTop_toBottomOf="@+id/userNumber" />
+        app:layout_constraintStart_toStartOf="@+id/et_number"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/register"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:onClick="login"
-        android:text="@string/login"
-        app:layout_constraintEnd_toEndOf="@+id/password"
+        android:layout_height="60dp"
+        android:layout_marginTop="120dp"
+        android:text="注册"
+        app:layout_constraintEnd_toEndOf="@+id/et_number"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
+        app:layout_constraintStart_toStartOf="@+id/et_number"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
 </androidx.constraintlayout.widget.ConstraintLayout>

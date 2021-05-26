@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
         val userDao = DatabaseUtil.db.userDao()
         val allUser = userDao.getAllUser()
         if (allUser.isEmpty()) {
-            val user = User(0, "admin", 0, "123456")
+            val user = User(0, 0, "0000001", "admin", "123456")
             userDao.insertAll(user)
         }
 
@@ -33,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(
                     Intent(
                         this@SplashActivity,
-                        Login::class.java
+                        LoginActivity::class.java
                     )
                 )
                 finish()
