@@ -29,7 +29,7 @@ class SplashActivity : AppCompatActivity() {
         }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (mmkv.decodeString("user") == null) {
+            if (mmkv.decodeString("user_number") == null) {
                 startActivity(
                     Intent(
                         this@SplashActivity,

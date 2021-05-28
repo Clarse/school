@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         addUser.setOnClickListener {
             startActivity(Intent(this, UserAddActivity::class.java))
         }
+        sign.setOnClickListener {
+            startActivity(Intent(this, SignActivity::class.java))
+        }
         login_out.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("提示信息")
